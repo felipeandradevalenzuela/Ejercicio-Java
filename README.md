@@ -48,6 +48,11 @@ http://localhost:8080
 ```
 Esto te llevará a la página de inicio de la aplicación, donde puedes comenzar a utilizarla.
 
+Para revisar los endpoint y schemas mediante Swagger puedes visitar:
+
+[http://localhost:8080/doc/swagger-ui/index.html](http://localhost:8080/doc/swagger-ui/index.html)
+
+
 Recuerda que el endpoint para ver usuarios es
 [http://localhost:8080/user/all](http://localhost:8080/user/all)
 [http://localhost:8080/user/{userId}](http://localhost:8080/user/{userId})
