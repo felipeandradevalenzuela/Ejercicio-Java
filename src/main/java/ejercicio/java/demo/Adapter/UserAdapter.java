@@ -23,8 +23,13 @@ public class UserAdapter {
         userDTO.setName(user.getName());
         userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
+        userDTO.setCreated(user.getCreated());
+        userDTO.setModified(user.getModified());
+        userDTO.setLastLogin(user.getLastLogin());
+        userDTO.setToken(user.getToken());
         userDTO.setPhones(user.getPhones());
-        
+        userDTO.setActive(user.isActive());
+
         return userDTO;
     }
     

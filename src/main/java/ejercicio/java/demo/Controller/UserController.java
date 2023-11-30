@@ -2,6 +2,7 @@ package ejercicio.java.demo.Controller;
 
 import ejercicio.java.demo.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import ejercicio.java.demo.DTO.UserDTO;
@@ -30,4 +31,15 @@ public class UserController {
     public UserDTO getUser(@PathVariable String userId) {
         return userService.getUser(userId);
     }
+
+    @PostMapping("/deactivate/{userId}")
+    public UserDTO deactivateUser(@PathVariable String userId) {
+        return userService.changeUserState(userId, false);
+    }
+
+    @PostMapping("/activate/{userId}")
+    public UserDTO activateUser(@PathVariable String userId) {
+        return userService.changeUserState(userId, true);
+    }
+
 }
