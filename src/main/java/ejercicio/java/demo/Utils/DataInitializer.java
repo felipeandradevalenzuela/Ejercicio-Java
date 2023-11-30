@@ -28,7 +28,6 @@ public class DataInitializer {
     public void init() {
         Date date = new Date();
 
-        // Carga datos iniciales
         List<Phone> initialPhones = Arrays.asList(
                 new Phone(66677669,9,569),
                 new Phone(86606669,2,569)

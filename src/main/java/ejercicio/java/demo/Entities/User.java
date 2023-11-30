@@ -22,15 +22,15 @@ public class User {
     private String email;
     private String password;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created")
+    @Column(name = "created", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date created;
-    @Column(name = "is_active")
+    @Column(name = "is_active", columnDefinition = "BOOLEAN DEFAULT true")
     private boolean isActive;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "modified")
+    @Column(name = "modified", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date modified;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "last_login")
+    @Column(name = "last_login", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date lastLogin;
     @Column(name = "token")
     private String token;
