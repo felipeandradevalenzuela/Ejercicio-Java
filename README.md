@@ -1,6 +1,4 @@
 # Ejercicio-Java
-Descripción concisa de lo que hace tu proyecto.
-
 ## Requisitos Previos
 
 Asegúrate de tener instalados los siguientes requisitos previos:
