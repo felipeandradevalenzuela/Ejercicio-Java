@@ -10,7 +10,7 @@ import ejercicio.java.demo.Services.IUserService;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
     
     @Autowired
