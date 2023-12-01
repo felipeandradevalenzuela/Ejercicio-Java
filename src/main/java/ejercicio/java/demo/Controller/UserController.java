@@ -17,11 +17,6 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/add")
-    public UserDTO create(@RequestBody UserDTO userDTO) throws Exception {
-        return userService.create(userDTO);
-    }
-
     @GetMapping("/all")
     public Collection<User> findUsers() throws Exception{
         return userService.getUsers();

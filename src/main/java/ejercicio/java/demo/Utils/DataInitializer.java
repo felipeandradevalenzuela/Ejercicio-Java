@@ -1,6 +1,7 @@
 package ejercicio.java.demo.Utils;
 
 import ejercicio.java.demo.Entities.Phone;
+import ejercicio.java.demo.Entities.Role;
 import ejercicio.java.demo.Entities.User;
 import ejercicio.java.demo.Repositories.IPhoneRepository;
 import ejercicio.java.demo.Repositories.IUserRepository;
@@ -34,9 +35,36 @@ public class DataInitializer {
         );
 
         List<User> initialUsers = Arrays.asList(
-                new User(new UuidGenerator().generateUuid(),"Felipe Andrade", "f.andradevalenzuela@gmail.com","Testing193!",date,true,date,date,"tok",initialPhones),
-                new User(new UuidGenerator().generateUuid(),"Matias Andrade", "m.andradevalenzuela@gmail.com","Testin!g193!",date,true,date,date,"toktok",initialPhones)
-        );
+                User.builder()
+                        .created(date)
+                        .username("f.andradevalenzuela@gmail.com")
+                        .role(Role.USER)
+                        .email("f.andradevalenzuela@gmail.com")
+                        .token("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmLmFuZHJhZGV2YWxlbnp1ZWxhQGdtYWlsLmNvbSIsImlhdCI6MTcwMTQxMjM0MiwiZXhwIjoxNzAxNDk4NzQyfQ.E2Z0a-XN-yUxi9Gqn_YVshBLZYE52pGzqEHnFW9kWek")
+                        .isActive(true)
+                        .lastLogin(date)
+                        .modified(date)
+                        .name("Felipe Andrade")
+                        .uuid(new UuidGenerator().generateUuid())
+                        .phones(initialPhones)
+                        .password("$2a$10$tLZiy5PtI.TkAik4Oo4xG.XbR0GA8amzmPvpPpNdabygkNNRoAAFa")
+                        .token("")
+                        .build(),
+                User.builder()
+                        .created(date)
+                        .role(Role.USER)
+                        .email("m.andradevalenzuela@gmail.com")
+                        .username("m.andradevalenzuela@gmail.com")
+                        .token("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtLmFuZHJhZGV2YWxlbnp1ZWxhQGdtYWlsLmNvbSIsImlhdCI6MTcwMTQxMjM0MiwiZXhwIjoxNzAxNDk4NzQyfQ.tkeKMxFUiM4WM7is5QVlhjQIlTkfzwv9UbBs5A7K9dU")
+                        .isActive(true)
+                        .lastLogin(date)
+                        .modified(date)
+                        .name("Matias Andrade")
+                        .uuid(new UuidGenerator().generateUuid())
+                        .phones(initialPhones)
+                        .password("$2a$10$tLZiy5PtI.TkAik4Oo4xG.XbR0GA8amzmPvpPpNdabygkNNRoAAFa")
+                        .token("")
+                        .build());
 
         List<User> savedUsers = userRepository.saveAll(initialUsers);
 

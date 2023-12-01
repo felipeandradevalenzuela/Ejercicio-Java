@@ -1,4 +1,4 @@
-package ejercicio.java.demo.Utils;
+package ejercicio.java.demo.Exception;
 
 public enum ErrorMessages {
     INVALID_EMAIL("El correo ingresado no es válido, debe seguir el formato: aaaaa@dominio.cl"),
