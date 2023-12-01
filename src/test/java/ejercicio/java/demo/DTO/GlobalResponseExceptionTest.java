@@ -1,5 +1,6 @@
 package ejercicio.java.demo.DTO;
 
+import ejercicio.java.demo.Exception.GlobalResponseException;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
