@@ -1,60 +1,23 @@
 # Ejercicio-Java
-## Requisitos Previos
 
-Asegúrate de tener instalados los siguientes requisitos previos:
+## Instalación
 
-- **Java 8 o superior:** Descárgalo [aquí](https://www.oracle.com/java/technologies/javase-downloads.html).
-- **Maven:** Descárgalo [aquí](https://maven.apache.org/download.cgi) e instálalo siguiendo las [instrucciones de instalación](https://maven.apache.org/install.html).
+Sigue estos pasos para instalar y ejecutar el proyecto:
 
-## Instalación y Ejecución
+1. Clona el repositorio: git clone [https://github.com/felipeandradevalenzuela/Ejercicio-Java.git](https://github.com/felipeandradevalenzuela/Ejercicio-Java.git)
+2. Navega al directorio del proyecto: cd spring-boot-jwt-authenticadion
+3. Construye el proyecto usando Maven: mvn clean install
+4. Ejecuta el proyecto: mvn spring-boot:run
+5. Prueba la API Rest utilizando Postman u otra aplicación en http://localhost:8080.
 
-Sigue estos pasos para ejecutar el proyecto en tu entorno local:
-
-### Clonar el Repositorio
-
-Abre una terminal y clona el repositorio de GitHub en tu máquina local:
-
-```bash
-git clone https://github.com/felipeandradevalenzuela/Ejercicio-Java.git
-```
-
-### Configuración
-
-Navega hasta el directorio del proyecto:
-
-```bash
-cd rutaDelRepositorio
-```
-
-Usa Maven para compilar y construir el proyecto:
-```bash
-mvn clean install
-```
-Luego, puedes ejecutar la aplicación con el siguiente comando:
-```bash
-mvn spring-boot:run
-```
-La aplicación ahora debería estar en funcionamiento y escuchando en un puerto específico (generalmente el puerto 8080).
-
-### Acceder a la Aplicación
-Abre tu navegador web y visita la siguiente dirección:
-
-```bash
-http://localhost:8080
-```
-Esto te llevará a la página de inicio de la aplicación, donde puedes comenzar a utilizarla.
+Esto te llevará a la página de inicio de la aplicación, donde podrás comenzar a utilizarla.
 
 Para revisar los endpoint y schemas mediante Swagger puedes visitar:
 
 [http://localhost:8080/doc/swagger-ui/index.html](http://localhost:8080/doc/swagger-ui/index.html)
 
-
-Recuerda que el endpoint para ver usuarios es
-[http://localhost:8080/user/all](http://localhost:8080/user/all)
-[http://localhost:8080/user/{userId}](http://localhost:8080/user/{userId})
-
 Para la creación de usuarios puedes hacer un Post directamente a:
-[http://localhost:8080/auth/register](http://localhost:8080/auth/register)
+- [http://localhost:8080/auth/register](http://localhost:8080/auth/register)
 
 Aquí adjunto un curl para que cargues usuarios.
 ```bash
@@ -87,7 +50,7 @@ curl --location 'http://localhost:8080/auth/register' \
 ```
 
 Si deseas ingresar puedes acceder mediante la url:
-[http://localhost:8080/auth/login](http://localhost:8080/auth/login)
+- [http://localhost:8080/auth/login](http://localhost:8080/auth/login)
 
 Agregando el password y username (correo) que agregaste en tu registro.
 Esto cambiara tu last_login y actualizara tu Token JWT.
@@ -103,10 +66,14 @@ curl --location 'http://localhost:8080/auth/login' \
 ```
 
 ** Para utilizar endpoints seguros:
-Debe guardar el Token entregado en la respuesta de la creación o Login respectivamente:
-y hacer un request de este estilo:
+Debe guardar el Token entregado en la respuesta de la creación o Login respectivamente y hacer un request de este estilo:
 
-** es importante modificar el token de autorización, o no podras acceder al endpoint privado. (/user/**)
+*** es importante modificar el token de autorización, o no podras acceder a endpoints privados
+
+Recuerda que los endpoint para ver usuarios son:
+- [http://localhost:8080/user/all](http://localhost:8080/user/all)
+- [http://localhost:8080/user/{userId}](http://localhost:8080/user/{userId})
+
 
 ```bash
 curl --location --request GET 'http://localhost:8080/user/all' \
@@ -119,7 +86,9 @@ curl --location --request GET 'http://localhost:8080/user/all' \
 ```
 
 ** Para realizar activaciones o desactivaciones de usuario solo basta enviar el token de autorización y las credenciales de acceso en los endpoint privados:
-user/deactivate|activate/{userId} --> el userId es un UUID que se puede obtener al registrar un usuario o al hacer un get a todos los usuarios /user/all
+- [http://localhost:8080/user/deactivate/a1ecb49e-2364-47a2-ac00-c021085a1ad9](http://localhost:8080/user/deactivate/a1ecb49e-2364-47a2-ac00-c021085a1ad9) 
+- [http://localhost:8080/user/activate/a1ecb49e-2364-47a2-ac00-c021085a1ad9](http://localhost:8080/user/activate/a1ecb49e-2364-47a2-ac00-c021085a1ad9)
+- el userId es un UUID que se puede obtener al registrar un usuario o al hacer un get a todos los usuarios /user/all
 
 ** Considera que estamos utilizando metodos POST para activar y desactivar
 Este endpoint cambiara el estado de ese usuario y a su vez actualizara la fecha de modificación.
