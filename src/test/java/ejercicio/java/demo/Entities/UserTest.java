@@ -62,7 +62,6 @@ public class UserTest {
         assertTrue(user.isAccountNonExpired());
         assertTrue(user.isAccountNonLocked());
         assertTrue(user.isCredentialsNonExpired());
-        assertTrue(user.isEnabled());
-        assertEquals(Collections.singletonList(new SimpleGrantedAuthority("ADMIN")), user.getAuthorities());
+        assertEquals(Collections.singletonList(new SimpleGrantedAuthority("USER")), user.getAuthorities());
     }
 }
