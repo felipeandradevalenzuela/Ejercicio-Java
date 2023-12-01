@@ -2,6 +2,7 @@ package ejercicio.java.demo.Controller;
 
 import ejercicio.java.demo.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import ejercicio.java.demo.DTO.UserDTO;

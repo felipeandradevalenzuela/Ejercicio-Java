@@ -13,6 +13,7 @@ public class UserAdapterTest {
 
     @BeforeEach
     void setUp() {
+
         userAdapter = new UserAdapter();
     }
 

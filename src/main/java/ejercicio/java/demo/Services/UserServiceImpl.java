@@ -7,6 +7,7 @@ import ejercicio.java.demo.Exception.ErrorMessages;
 import ejercicio.java.demo.Security.ApplicationConfig;
 import ejercicio.java.demo.Utils.UuidGenerator;
 import ejercicio.java.demo.Utils.Validation;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import ejercicio.java.demo.Adapter.UserAdapter;
