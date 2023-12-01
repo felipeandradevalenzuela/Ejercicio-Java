@@ -1,4 +1,4 @@
-package ejercicio.java.demo.DTO;
+package ejercicio.java.demo.Exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,5 @@
 package ejercicio.java.demo.Exception;
 
-import ejercicio.java.demo.DTO.GlobalResponseException;
 import ejercicio.java.demo.Utils.Time;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

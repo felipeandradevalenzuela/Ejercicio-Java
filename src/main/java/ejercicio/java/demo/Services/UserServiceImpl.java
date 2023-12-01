@@ -1,11 +1,12 @@
 package ejercicio.java.demo.Services;
 
 import ejercicio.java.demo.Entities.Phone;
+import ejercicio.java.demo.Entities.Role;
 import ejercicio.java.demo.Repositories.IPhoneRepository;
-import ejercicio.java.demo.Utils.ErrorMessages;
+import ejercicio.java.demo.Exception.ErrorMessages;
+import ejercicio.java.demo.Security.ApplicationConfig;
 import ejercicio.java.demo.Utils.UuidGenerator;
 import ejercicio.java.demo.Utils.Validation;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import ejercicio.java.demo.Adapter.UserAdapter;
@@ -13,6 +14,7 @@ import ejercicio.java.demo.DTO.UserDTO;
 import ejercicio.java.demo.Entities.User;
 import ejercicio.java.demo.Repositories.IUserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.Date;
@@ -26,9 +28,12 @@ public class UserServiceImpl implements IUserService {
     private final IPhoneRepository phoneRepository;
     private final UserAdapter userAdapter;
     private final Validation validation;
+    private final IJwtService jwtService;
+    private final ApplicationConfig applicationConfig;
 
     @Override
-    public UserDTO create(UserDTO userDTO) throws Exception {
+    @Transactional
+    public User create(UserDTO userDTO) throws Exception {
         User user = userAdapter.dtoToEntity(userDTO);
         user = setDefaultValues(user);
 
@@ -44,6 +49,8 @@ public class UserServiceImpl implements IUserService {
 
 
         user.setUuid(new UuidGenerator().generateUuid());
+        user.setPassword(applicationConfig.passwordEncoder().encode(userDTO.getPassword()));
+        user.setToken(jwtService.generateToken(user));
         User savedUser = userRepository.save(user);
         List<Phone> userPhones = user.getPhones();
 
@@ -52,10 +59,10 @@ public class UserServiceImpl implements IUserService {
                 userPhone.setUser(savedUser);
             }
         }
-        phoneRepository.saveAll(userPhones);
-        savedUser.setPhones(userPhones);
 
-        return userAdapter.entityToDTO(savedUser);
+        phoneRepository.saveAll(userPhones);
+
+        return user;
 
     }
 
@@ -98,6 +105,7 @@ public class UserServiceImpl implements IUserService {
         user.setLastLogin(date);
         user.setModified(date);
         user.setActive(true);
+        user.setRole(Role.USER);
         return user;
     }
 

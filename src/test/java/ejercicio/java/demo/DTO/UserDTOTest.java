@@ -1,20 +1,20 @@
 package ejercicio.java.demo.DTO;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserDTOTest {
 
     @Test
-    public void testUserDTOAssignment() {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName("Felipe");
-        userDTO.setEmail("felipe@gmail.com");
-        userDTO.setPassword("Password123!");
+    public void testUserDTOInheritsUserProperties() {
+        String expectedUsername = "testUser";
+        String expectedPassword = "testPassword";
 
-        assertEquals("Felipe", userDTO.getName());
-        assertEquals("felipe@gmail.com", userDTO.getEmail());
-        assertEquals("Password123!", userDTO.getPassword());
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUsername(expectedUsername);
+        userDTO.setPassword(expectedPassword);
+
+        assertEquals(expectedUsername, userDTO.getUsername());
+        assertEquals(expectedPassword, userDTO.getPassword());
     }
 }
