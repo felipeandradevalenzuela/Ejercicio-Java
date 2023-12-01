@@ -1,6 +1,15 @@
 # Ejercicio-Java
 
+## Problema
+
+Debemos crear endpoints donde los usuarios puedan ser activados o desactivados, estos tambien pueden registrarse y acceder.
+
+## Solución propuesta
+Utilizaremos JWT para aplicar una capa de seguridad a los endpoints privados que realizaran modificaciones utilizando distintas dependencias que nos ayudaran en el flujo que se muestra a continuación:
+![diagramaF](https://github.com/felipeandradevalenzuela/Ejercicio-Java/assets/84478274/92144255-d57a-430c-a847-23b38c03493c)
+
 ## Instalación
+
 
 Sigue estos pasos para instalar y ejecutar el proyecto:
 
@@ -9,7 +18,12 @@ Sigue estos pasos para instalar y ejecutar el proyecto:
 3. Construye el proyecto usando Maven: mvn clean install
 4. Ejecuta el proyecto: mvn spring-boot:run
 5. Prueba la API Rest utilizando Postman u otra aplicación en http://localhost:8080.
+6. Para acceder a la consola de H2 basta con ingresar a [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+   - Asignar el datasource: jdbc:h2:mem:testdb
+   - Ingresar con el usuario: sa
+   - No requiere contraseña
 
+## Pruebas
 Esto te llevará a la página de inicio de la aplicación, donde podrás comenzar a utilizarla.
 
 Para revisar los endpoint y schemas mediante Swagger puedes visitar:
